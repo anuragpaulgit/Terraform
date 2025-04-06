@@ -1,9 +1,9 @@
-AWS EKS Deployment with Terraform
+# AWS EKS Deployment with Terraform
 This project uses Terraform to provision an Amazon EKS (Elastic Kubernetes Service) cluster along with all necessary AWS infrastructure components. It also includes steps for deploying a simple Nginx "Hello World" application to demonstrate the complete workflow.
 Architecture Overview
 This project provisions:
 
-VPC Infrastructure:
+# VPC Infrastructure:
 
 VPC with CIDR 10.0.0.0/16
 4 Subnets (2 private, 2 public) across 2 availability zones
@@ -36,32 +36,6 @@ Docker installed (for building and pushing the container image)
 kubectl installed
 Helm v3+ installed
 A Docker Hub account (or other container registry)
-
-
-Directory Structure
-.
-├── eks-setup/                    # Terraform code for EKS infrastructure
-│   ├── eks.tf                    # EKS cluster configuration
-│   ├── igw.tf                    # Internet Gateway
-│   ├── main.tf                   # Terraform main configuration
-│   ├── nat.tf                    # NAT Gateway
-│   ├── nodes.tf                  # EKS node group
-│   ├── oidc.tf                   # OIDC provider
-│   ├── output.tf                 # Output values
-│   ├── providers.tf              # AWS provider configuration
-│   ├── routes.tf                 # Route tables
-│   ├── subnets.tf                # VPC subnets
-│   ├── terraform.tfvars          # Terraform variables
-│   ├── variables.tf              # Variable definitions
-│   └── vpc.tf                    # VPC configuration
-├── docker-hello-world/           # Docker image for Nginx hello world app
-│   ├── Dockerfile                # Docker build configuration
-│   └── index.html                # Simple HTML page
-└── k8s-hello-world/              # Kubernetes manifests
-    ├── deployment.yaml           # Application deployment
-    ├── ingress.yaml              # Ingress configuration
-    ├── namespace.yaml            # Namespace definition
-    └── service.yaml              # Service configuration
 
 
 
