@@ -57,7 +57,7 @@ A Docker Hub account (or other container registry)
 - Update Helm repositories ===> helm repo update
 
 - Install Nginx Ingress Controller
-helm install ingress-nginx ingress-nginx/ingress-nginx \
+- helm install ingress-nginx ingress-nginx/ingress-nginx \
   --namespace ingress-nginx \
   --create-namespace \
   --set controller.service.type=LoadBalancer \
