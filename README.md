@@ -12,7 +12,7 @@ NAT Gateway for private subnet outbound traffic
 Route tables for network traffic management
 
 
-EKS Cluster:
+# EKS Cluster:
 
 EKS Cluster running Kubernetes v1.30
 IAM roles and policies for EKS control plane
@@ -28,7 +28,7 @@ Nginx Ingress Controller for external access
 
 
 
-Prerequisites
+# Prerequisites
 
 AWS CLI installed and configured with appropriate permissions
 Terraform v1.0.0+ installed
