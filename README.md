@@ -79,16 +79,12 @@ Optional: Test the image locally
 docker run -d -p 8080:80 <user_name>/nginx-hello:latest
 
 5. Deploy the Application to Kubernetes
-Create the namespace
-kubectl apply -f namespace.yaml
+- Create the namespace ===> kubectl apply -f namespace.yaml
 
-Deploy the application (update the image name in deployment.yaml first)
-kubectl apply -f deployment.yaml
+- Deploy the application (update the image name in deployment.yaml first) ==> kubectl apply -f deployment.yaml
 
-Create the service
-kubectl apply -f service.yaml
+- Create the service ===> kubectl apply -f service.yaml
 
-Create the ingress resource
-kubectl apply -f ingress.yaml
+- Create the ingress resource ===> kubectl apply -f ingress.yaml
 
 
