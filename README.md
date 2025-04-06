@@ -40,28 +40,28 @@ A Docker Hub account (or other container registry)
 
 
 
-Step-by-Step Deployment Guide
+# Step-by-Step Deployment Guide
 1. Deploy the EKS Infrastructure with Terraform
-  # Initialize Terraform
+Initialize Terraform
   terraform init
   
-  # Preview the changes
+Preview the changes
   terraform plan
   
-  # Deploy the infrastructure
+Deploy the infrastructure
   terraform apply
 
 2. Configure kubectl to work with your EKS cluster
 aws eks update-kubeconfig --region <provide the resion where provision> --name <name of you eks cluster>
 
 3. Deploy the Nginx Ingress Controller
-# Add the Nginx Ingress Helm repository
+Add the Nginx Ingress Helm repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
-# Update Helm repositories
+Update Helm repositories
 helm repo update
 
-# Install Nginx Ingress Controller
+Install Nginx Ingress Controller
 helm install ingress-nginx ingress-nginx/ingress-nginx \
   --namespace ingress-nginx \
   --create-namespace \
@@ -69,26 +69,26 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
   --set controller.service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-type"=classic
   
 4. Build and Push the Docker Image
-# Build the Docker image (replace <user_name> with your Docker Hub username)
+Build the Docker image (replace <user_name> with your Docker Hub username)
 docker build -t <user_name>/nginx-hello:latest .
 
-# Push the image to Docker Hub
+Push the image to Docker Hub
 docker push <user_name>/nginx-hello:latest
 
-# Optional: Test the image locally
+Optional: Test the image locally
 docker run -d -p 8080:80 <user_name>/nginx-hello:latest
 
 5. Deploy the Application to Kubernetes
-# Create the namespace
+Create the namespace
 kubectl apply -f namespace.yaml
 
-# Deploy the application (update the image name in deployment.yaml first)
+Deploy the application (update the image name in deployment.yaml first)
 kubectl apply -f deployment.yaml
 
-# Create the service
+Create the service
 kubectl apply -f service.yaml
 
-# Create the ingress resource
+Create the ingress resource
 kubectl apply -f ingress.yaml
 
 
