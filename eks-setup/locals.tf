@@ -1,8 +1,8 @@
 locals {
-  env         = "staging"
+  env         = "dev"
   region      = "ap-south-1"
   zone1       = "ap-south-1a"
   zone2       = "ap-south-1b"
-  eks_name    = "demo"
-  eks_version = "1.30"
+  eks_name    = "anurag-eks"
+  eks_version = "1.32"
 }
