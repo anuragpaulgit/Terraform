@@ -62,6 +62,8 @@ A Docker Hub account (or other container registry)
   --create-namespace \
   --set controller.service.type=LoadBalancer \
   --set controller.service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-type"=classic
+
+![image](https://github.com/user-attachments/assets/eff2ff7e-b315-425c-adba-9485e90f9563)
   
 4. Build and Push the Docker Image
 - Build the Docker image (replace <user_name> with your Docker Hub username) ===> docker build -t <user_name>/nginx-hello:latest .
@@ -79,4 +81,12 @@ A Docker Hub account (or other container registry)
 
 - Create the ingress resource ===> kubectl apply -f ingress.yaml
 
+6. Access the Application
+- After the deployment is complete and the ingress controller provisions a load balancer:
+- kubectl get svc -n ingress-nginx
+
+![image](https://github.com/user-attachments/assets/5b5a5ad4-2533-45e8-9fa3-07f32bb8d690)
+
+
+![image](https://github.com/user-attachments/assets/54cadd68-25c6-4dd3-bbf3-c7273b211a37)
 
